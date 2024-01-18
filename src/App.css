@@ -12,8 +12,8 @@ html {
   overflow-x: hidden; 
 }
 .card {
-  width: 320px; 
-  height: 250px; 
+  width: 270px; 
+  height: 200px; 
   padding: 20px;
   margin: 10px;
   background-color: white;
@@ -27,9 +27,8 @@ html {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  width: 300px;
+  width: 220px;
   height: 40px;
-  margin-top: 20px;
   transition: 0.3s ease; 
 }
 
@@ -78,7 +77,8 @@ html {
 
 .card-container .card p,
 .cardcontainer1 .card p {
-  color: #D7CCC8; 
+  color: #D7CCC8;
+  font-size: 15px; 
   font-family: Arial, Helvetica, sans-serif;
 }
 .card-container .card span,
