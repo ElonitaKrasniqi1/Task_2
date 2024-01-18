@@ -1,71 +1,82 @@
 import React from "react";
 import Card from "./Card";
-import "./App.css"; // Importoni dosjen stili për CardContainer
+import "./App.css";
 
-export default function CardContainer() {
+export default function CardContainer({ domainSet }) {
   const cardsData = [
     {
-      title: ".NET",
+      title: ".COM",
       price: "$5.99/yr",
       buttonText: "Buy Now",
-      description: "Your card description here 1",
+      description: "Instead of $10.99/yr for Domains",
     },
     {
-      title: "React",
-      price: "$6.99/yr",
+      title: ".AI",
+      price: "$55.99/yr",
       buttonText: "Buy Now",
-      description: "Your card description here 2",
+      description: "Instead of $10.99/yr for Domains",
     },
     {
-      title: ".NET",
-      price: "$5.99/yr",
-      buttonText: "Buy Now",
-      description: "Your card description here 1",
-    },
-    {
-      title: "React",
-      price: "$6.99/yr",
-      buttonText: "Buy Now",
-      description: "Your card description here 2",
-    },
+        title: ".CO.UK",
+        price: "$3.99/yr",
+        buttonText: "Buy Now",
+        description: "Instead of $10.99/yr for Web Hosting",
+      },
+      {
+        title: ".ORG",
+        price: "$15.99/yr",
+        buttonText: "Buy Now",
+        description: "Instead of $10.99/yr for Web Hosting",
+      },
+      {
+          title: ".NET",
+          price: "$7.99/yr",
+          buttonText: "Buy Now",
+          description: "Instead of $10.99/yr for Dedicated Servers",
+        },
+        {
+          title: ".HEALTH",
+          price: "$7.99/yr",
+          buttonText: "Buy Now",
+          description: "Instead of $10.99/yr for Dedicated Servers",
+        },
+        {
+            title: ".NET",
+            price: "$7.99/yr",
+            buttonText: "Buy Now",
+            description: "Instead of $10.99/yr for Dedicated Servers",
+          },
+          {
+            title: ".HEALTH",
+            price: "$7.99/yr",
+            buttonText: "Buy Now",
+            description: "Instead of $10.99/yr for Dedicated Servers",
+          },
   ];
 
   const cardsData1 = [
-    {
-      title: ".NET",
-      price: "$5.99/yr",
-      buttonText: "Buy Now",
-      description: "Your card description here 1",
-    },
-    {
-      title: "React",
-      price: "$6.99/yr",
-      buttonText: "Buy Now",
-      description: "Your card description here 2",
-    },
-    {
-      title: ".NET",
-      price: "$5.99/yr",
-      buttonText: "Buy Now",
-      description: "Your card description here 1",
-    },
-    {
-      title: "React",
-      price: "$6.99/yr",
-      buttonText: "Buy Now",
-      description: "Your card description here 2",
-    },
+
   ];
 
+  const cardsData2 = [
+
+  ];
+
+
+  let selectedCardsData;
+  if (domainSet === 1) {
+    selectedCardsData = cardsData;
+  } else if (domainSet === 2) {
+    selectedCardsData = cardsData1;
+  } else if (domainSet === 3) {
+    selectedCardsData = cardsData2;
+  }
+
   return (
-    <><div className="card-container">
-          {cardsData.map((card, index) => (
-              <Card key={index} {...card} />
-          ))}
-      </div><div className="cardcontainer1">
-              {cardsData1.map((card, index) => (
-                  <Card key={index} {...card} />
-              ))}
-          </div></>
+    <div className="card-container">
+      {selectedCardsData.map((card, index) => (
+        <Card key={index} {...card} />
+      ))}
+    </div>
   );
 }

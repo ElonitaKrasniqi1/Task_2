@@ -1,0 +1,45 @@
+
+.tab-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .tab {
+    margin: 0 30px;
+  }
+  
+  .tab .link {
+    text-decoration: none;
+    color: #BDBDBD;
+    font-size: 18px;
+    font-family: 'Sans-serif', sans-serif;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .tab .link:hover {
+    border-bottom: 2px solid #3498db;
+  }
+  
+
+  @media screen and (max-width: 767px) {
+    .tab-list {
+      display: none;
+    }
+  
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .menu-toggle:checked + .menu {
+      display: flex;
+    }
+  }

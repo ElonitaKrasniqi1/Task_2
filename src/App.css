@@ -27,7 +27,7 @@ html {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  width: 200px;
+  width: 300px;
   height: 40px;
   margin-top: 20px;
   transition: 0.3s ease; 
@@ -69,4 +69,27 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.card-title{
+  font-family: Arial Narrow;
+  font-weight: lighter;
+  margin-bottom: 25px;
+}
+
+.card-container .card p,
+.cardcontainer1 .card p {
+  color: #D7CCC8; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+.card-container .card span,
+.cardcontainer1 .card span {
+  font-size: 20px; 
+  font-weight:600; 
+}
+.card-container .card span,
+.cardcontainer1 .card span,
+.card-container .card p,
+.cardcontainer1 .card p {
+  line-height: 1.5;
+  margin-top: 5px;
 }
