@@ -1,4 +1,3 @@
-
 .tab-list {
     list-style-type: none;
     padding: 0;
@@ -8,13 +7,13 @@
     padding: 15px 0;
     background-color: transparent;
     cursor: pointer;
-  }
-  
-  .tab {
+}
+
+.tab {
     margin: 0 30px;
-  }
-  
-  .tab .link {
+}
+
+.tab .link {
     text-decoration: none;
     color: #BDBDBD;
     font-size: 14px;
@@ -22,24 +21,70 @@
     position: relative;
     padding-bottom: 5px;
     transition: color 0.3s ease;
-  }
-  
-  .tab .link:hover {
+}
+
+.tab .link:hover {
+    color: #3498db; 
     border-bottom: 2px solid #3498db;
-  }
-  
+}
+
+.menu-toggle {
+    display: none;
+}
 
   @media screen and (max-width: 767px) {
     .tab-list {
-      display: none;
+        flex-direction: column;
+        text-align: center;
     }
-  
-    .menu-toggle {
-      display: block;
-      cursor: pointer;
+
+    .tab {
+        margin-bottom: 10px;
     }
-  
-    .menu-toggle:checked + .menu {
-      display: flex;
+
+    .menu-toggle:hover {
+        color: #3498db; 
     }
-  }
+
+    .tab-container.initial-tab-open .menu__box {
+        transform: translateX(0);
+      }
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+        color: #3498db; 
+      }
+      
+      .menu-visible .tab-list {
+        display: flex;
+      }
+      
+      .menu-hidden .tab-list {
+        display: none;
+      }
+      
+      .menu__box {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        transform: translateY(-100%); 
+        z-index: 1; 
+      }
+      
+      .menu-visible .menu__box {
+        transform: translateX(0); 
+      }
+      .menu-visible .tab-list .tab:first-child .link {
+        border-bottom: 2px solid #3498db;
+        color: #3498db;
+      }
+      
+}
