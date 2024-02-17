@@ -1,0 +1,80 @@
+$isOpen: false;
+
+@media screen and (max-width: 767px) {
+  .tabs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    color: #3498db;
+    font-size: 24px;
+  
+    &[aria-expanded="true"] {
+      display: none;
+    }
+  
+    &[aria-expanded="false"] {
+      display: block;
+    }
+  }
+  
+
+  .tab-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+    .tab {
+        margin-bottom: 10px;
+        display: block; // ose ndonjë vlerë tjetër default, mund të përdorni opacity, visibility etj.
+        
+        @if $isOpen {
+          display: block;
+        } else {
+          display: none;
+        }
+      }
+
+  .menu__box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
+    z-index: 1;
+  }
+
+  .menu-visible .menu__box {
+    transform: translateX(0);
+  }
+
+  .menu-visible .tab-list {
+    display: flex;
+  }
+
+  .tab-panel {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .tab-panel > .tab-panel-child {
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  .tab {
+    display: block !important;
+  }
+}
