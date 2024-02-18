@@ -3,6 +3,7 @@ import TabsComponent from "./TabsComponent";
 import ParkName from "./Parkname";
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";  
+import TrainHookComponent from "./TrainHookComponent";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="app">
         <TabsComponent />
         <ParkName />
+        <TrainHookComponent />
       </div>
     </Router>
   );

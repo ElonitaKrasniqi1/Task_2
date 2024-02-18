@@ -1,0 +1,71 @@
+
+
+.custom-accordion-container {
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    width: 72rem;
+    transition: height 0.3s ease;
+    position: relative;
+  }
+  
+  .question-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+    padding: 15px 0 15px 0;
+    position: relative;
+  }
+  
+  .chevron-icon {
+    margin-right: 15px;
+    margin-top: 5px;
+  }
+  
+  .answer-container {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif
+  }
+  
+  .sub-question-container {
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: black;
+    font-size: 1em;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-weight: 400;
+    font-family:Arial, Helvetica, sans-serif
+
+  }
+  
+  .chevron-sub-icon {
+    margin-left: 10px;
+  }
+  
+  
+  .sub-answer-container {
+    margin-top: 10px;
+    margin-left: 60px;
+    color: black;
+    font-size: 0.9em;
+  }
+  

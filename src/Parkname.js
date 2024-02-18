@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import './ParkInfo.css';
 
 function ParkName() {
@@ -10,11 +10,13 @@ function ParkName() {
     setShowInfo(!showInfo);
   };
 
+  const icon = showInfo ? faChevronUp : faChevronDown;
+
   return (
     <div className={`park-info-container ${showInfo ? 'expanded' : ''}`}>
       <h2 className="park-info-title" onClick={handleToggleInfo}>
         Why park a domain name in Parkname?
-        <FontAwesomeIcon icon={faChevronDown} className="chevron-icon" />
+        <FontAwesomeIcon icon={icon} className="chevron-iconn" />
       </h2>
       {showInfo && (
         <div className="line"></div>
