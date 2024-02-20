@@ -1,17 +1,26 @@
-
-
 .custom-accordion-container {
-    margin-top: 20px;
-    margin-left: 150px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
+    padding: 25px;
     border: 1px solid #ddd;
-    border-radius: 15px;
     background-color: #f8f8f8;
     width: 72rem;
     transition: height 0.3s ease;
-    position: relative;
+  }
+  .user-icon{
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    color: #3498DB ;
+  }
+  .article-topic {
+    font-size: 0.9em;
+    color: #B3B6B7;
+    display: flex;
+    position: absolute;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    margin-left: 15px;
   }
   
   .question-container {
@@ -23,8 +32,8 @@
     font-size: 1.2em;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 15px;
-    padding: 15px 0 15px 0;
+    margin-left: 65px;
+    padding: 0 0 35px 0;
     position: relative;
   }
   
@@ -34,38 +43,100 @@
   }
   
   .answer-container {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     margin-right: 20px;
+    width: 94%;
     color: black;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif
   }
   
   .sub-question-container {
-display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     color: black;
     font-size: 1em;
-    margin-top: 30px;
-    margin-left: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
     font-weight: 400;
     font-family:Arial, Helvetica, sans-serif
 
   }
   
   .chevron-sub-icon {
-    margin-left: 10px;
-  }
-  
+    position: relative;
+    margin-left: 65.75rem;
+    margin-bottom: 10px;
+    display: flex;
+    transform: translateY(-50%);
+    transition: right 0.3s ease;
+}
   
   .sub-answer-container {
-    margin-top: 10px;
-    margin-left: 60px;
+    padding-top: 10px;
+    padding-right: 20px;
+    margin-left: 10px;
     color: black;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    position: relative;
+    display: flex;
+    width: 90%;
   }
   
+  .line {
+    border:1px;
+    border-color: #ddd;
+    margin: 10px 5px 25px 5px; 
+  }
+
+@media screen and (min-width: 215px) and (max-width: 714px) {
+    .custom-accordion-container {
+      width: 87%;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 30px;
+    }
+  
+    .chevron-sub-icon {
+      margin-left: 99%; 
+    }
+
+  }
+
+  @media screen and (min-width: 714px) and (max-width: 1024px) {
+    .custom-accordion-container {
+      width: 90%;
+      margin-left: 20px;
+      margin-right: 30px;
+      margin-bottom: 30px;
+    }
+  
+    .chevron-sub-icon {
+      margin-left: 99%; 
+    }
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
+    .custom-accordion-container {
+      width: 90%;
+      margin: 10px auto 30px 25px;
+    }
+  
+    .chevron-sub-icon {
+      margin-left: 99%; 
+    }
+  }
+  @media screen and (min-width: 1201px) {
+    .custom-accordion-container {
+      width: 68%;
+      margin: -45px 150px 50px 150px;
+      position: relative;
+    }
+  
+    .chevron-sub-icon {
+      margin-left: 99%; 
+    }
+  }
