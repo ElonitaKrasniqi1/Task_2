@@ -1,33 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import "react-tabs/style/react-tabs.css";
 import CardContainer from "./CardContainer";
 import "./TabsComponent.css";
-import "./TabsComponent.scss";
 
 export default function TabsComponent() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   const handleTabSelect = (index) => {
     setSelectedTabIndex(index);
     setIsMenuOpen(false);
-    setHamburgerOpen(false);
   };
 
-  const toggleMenu = () => {
+  const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    setHamburgerOpen(!isMenuOpen);
   };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest('.tabs-container')) {
+        closeMenu();
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleOutsideClick);
+    } else {
+      document.removeEventListener('click', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const savedTabIndex = localStorage.getItem("selectedTabIndex");
     const initialTabIndex = savedTabIndex !== null ? parseInt(savedTabIndex, 10) : 0;
-
+  
     setSelectedTabIndex(initialTabIndex);
-    setIsMenuOpen(false);
-
+  
     if (!initialTabIndex) {
       handleTabSelect(0);
     }
@@ -35,8 +54,8 @@ export default function TabsComponent() {
 
   return (
     <div className={`tabs-container ${isMenuOpen ? "menu-visible" : ""}`}>
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {hamburgerOpen ? "☰ Close" : "☰ Open"}
+      <button className="menu-toggle" onClick={handleMenuToggle}>
+        <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
       </button>
 
       <Tabs
