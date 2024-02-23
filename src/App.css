@@ -103,20 +103,45 @@ a:hover {
     margin-left: 40px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (max-width:1600px) {
     .card-container {
+      display: grid;
       grid-template-columns: repeat(4, 1fr);
       margin-top: 45px;
     }
-  }
+  
   
   .card {
-    width: 270px;
-    height: 200px;
+    width: 240px;
+    height: 180px;
     padding: 20px;
     margin: 10px;
     background-color: white;
     border-radius: 20px;
     text-align: center;
   }
+  .buy-now-button {
+    background-color: white;
+    border: 2px solid #03A9F4;
+    color: #03A9F4;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    transition: 0.3s ease; 
+  }
   
+  .buy-now-button:hover {
+    background-color: #B2EBF2;
+    transform: translateY(-5px);
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 45px;
+  }
+}
