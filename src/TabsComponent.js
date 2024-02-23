@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ import "./TabsComponent.css";
 export default function TabsComponent() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const handleTabSelect = (index) => {
     setSelectedTabIndex(index);
@@ -25,7 +26,7 @@ export default function TabsComponent() {
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      if (!event.target.closest('.tabs-container')) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
         closeMenu();
       }
     };
@@ -41,19 +42,8 @@ export default function TabsComponent() {
     };
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    const savedTabIndex = localStorage.getItem("selectedTabIndex");
-    const initialTabIndex = savedTabIndex !== null ? parseInt(savedTabIndex, 10) : 0;
-  
-    setSelectedTabIndex(initialTabIndex);
-  
-    if (!initialTabIndex) {
-      handleTabSelect(0);
-    }
-  }, []);
-
   return (
-    <div className={`tabs-container ${isMenuOpen ? "menu-visible" : ""}`}>
+    <div className={`tabs-container ${isMenuOpen ? "menu-visible" : ""}`} ref={menuRef}>
       <button className="menu-toggle" onClick={handleMenuToggle}>
         <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
       </button>
@@ -65,12 +55,19 @@ export default function TabsComponent() {
       >
         <TabList className={`tab-list ${isMenuOpen ? "menu-visible" : ""}`}>
           <Tab className="tab"><span className="link">Domains</span></Tab>
+          <hr className="tab-line" />
           <Tab className="tab"><span className="link">Web Hosting</span></Tab>
+          <hr className="tab-line" />
           <Tab className="tab"><span className="link">Dedicated Servers</span></Tab>
+          <hr className="tab-line" />
           <Tab className="tab"><span className="link">Virtual Cloud Servers</span></Tab>
+          <hr className="tab-line" />
           <Tab className="tab"><span className="link">WordPress Hosting</span></Tab>
+          <hr className="tab-line" />
           <Tab className="tab"><span className="link">Email Hosting</span></Tab>
-          <Tab className="tab"><span className="link">VPS Hosting Servers</span></Tab>
+          <hr className="tab-line" />
+          <Tab className="tab"><span className="link">VPS Hosting Servers</span>
+          </Tab><hr className="tab-line" />
           <Tab className="tab"><span className="link">Free Hosting</span></Tab>
         </TabList>
 
@@ -80,6 +77,7 @@ export default function TabsComponent() {
           </TabPanel>
         ))}
       </Tabs>
+      
     </div>
   );
 }

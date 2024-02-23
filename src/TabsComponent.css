@@ -44,33 +44,54 @@ body {
         justify-content: space-between;
         position: relative;
         background-color: #f5f5f5; 
-        margin-top: 10px; 
+        margin-top: -9px; 
+        width: 100%;
       }
-    
-    .tab-list {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      width: 100%;
-      background-color: #AED6F1;
-      border-radius: 8px; 
-      height: 36rem;
-    }
+      .tabs-container.menu-visible::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(169, 169, 169, 0.5); 
+        z-index: 1; 
+      }
+      .tabs-container.menu-visible .tab-list {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+        border: 1px solid #000;
+        z-index: 2; 
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      .tabs-container.menu-visible::after {
+        display: block; 
+      }
+      .tab-list {
+        display: none;
+        flex-direction: column;
+        align-items:flex-start;
+        position: relative;
+        background-color: white;
+        border-radius: 8px; 
+      }
     
     .link {
         font-family: Arial, Helvetica, sans-serif;
         cursor: pointer;
-        font-size: 15px;
-        font-weight: 700;
+        font-size: 13px;
+        font-weight: 600;
         text-align: left; 
-        padding: 50px;
-        margin-left: 20px; 
+        margin-left: 10px; 
         color: #2874A6 ;
         text-decoration: none;
         background-color: transparent;
       }
-      
+
       .link:hover {
         color: #21618C ; 
       }
@@ -83,7 +104,7 @@ body {
       width: 36px;
       height: 36px;
       cursor: pointer;
-      z-index: 1;
+      z-index: 999;
       bottom: 20px; 
       transition: transform 0.3s ease-in-out;
       background: linear-gradient(45deg, #40a8e9, #ffffff);
@@ -101,94 +122,187 @@ body {
           transform: translateY(0);
         }
       }
-
-      .tab {
-        position: relative;
-        margin: 25px 30px;
-        animation: fadeIn 0.5s ease-in-out;
+      .menu-visible .menu-toggle {
+        background: linear-gradient(45deg, #D7DBDD, #ffffff); 
+        width: 30px;
+        height: 30px;
+        margin-bottom: 20px;
       }
       
+      .tab {
+        display: fixed;
+        position: relative;
+        margin-top: 25px;
+        margin-left: 10px;
+        animation: fadeIn 0.5s ease-in-out;
+        
+      }
 
       .tabs-container.menu-visible .menu-toggle {
         transform: rotate(90deg);
       }
-
+      .tabs-container.menu-visible .tab-list {
+        position: fixed;
+        left: 0;
+        width: 60%;
+        height: 80vh;
+        overflow-y: auto; 
+        border: 1px solid #797D7F;
+        transition: transform 0.3s ease-in-out; 
+        z-index: 2;
+      }
+      
+      .menu-visible.at-top .tab-list,
+      .menu-visible.at-bottom .tab-list {
+        transform: translateY(0);
+      }
+.tab-line{
+    width: 100%;
+    background-color: #000; 
+}
   }
 
   @media screen and (min-width: 715px) and (max-width:1024px) {
-        .tabs-container {
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            background-color: #f5f5f5; 
-            margin-top: 10px; 
-          }
-        
-        .tab-list {
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          position: relative;
-          width: 100%;
-          background-color: #AED6F1;
-          border-radius: 8px; 
-          height: 36rem;
-        }
-        
-        .link {
-            font-family: Arial, Helvetica, sans-serif;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 700;
-            text-align: left; 
-            padding: 50px;
-            margin-left: 20px; 
-            color: #2874A6 ;
-            text-decoration: none;
-            background-color: transparent;
-          }
-          
-          .link:hover {
-            color: #21618C ; 
-          }
+    .tabs-container {
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        background-color: #f5f5f5; 
+        margin-top: -49px; 
+        width: 100%;
+      }
+      .tabs-container.menu-visible::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(169, 169, 169, 0.5); 
+        z-index: 1; 
+      }
+      .tabs-container.menu-visible .tab-list {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+        border: 1px solid #000;
+        z-index: 2; 
+        transition: transform 0.3s ease-in-out;
+      }
       
-        .menu-toggle {
-          display: block;
-          position: fixed;
-          left: 20px;
-          top: 15px;
-          width: 36px;
-          height: 36px;
-          cursor: pointer;
-          z-index: 1;
-          bottom: 20px; 
-          transition: transform 0.3s ease-in-out;
-          background: linear-gradient(45deg, #40a8e9, #ffffff);
-          border-radius: 35%; 
-          border: none;
-          outline: none;
-        }
-        @keyframes fadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(-20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
+      .tabs-container.menu-visible::after {
+        display: block; 
+      }
+      .tab-list {
+        display: none;
+        flex-direction: column;
+        align-items:flex-start;
+        position: relative;
+        background-color: white;
+        border-radius: 8px; 
+      }
     
-          .tab {
-            position: relative;
-            margin: 25px 30px;
-            animation: fadeIn 0.5s ease-in-out;
-          }
-          
-    
-          .tabs-container.menu-visible .menu-toggle {
-            transform: rotate(90deg);
-          }
-    
+    .link {
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: left; 
+        margin-left: 10px; 
+        color: #2874A6 ;
+        text-decoration: none;
+        background-color: transparent;
+      }
+
+      .link:hover {
+        color: #21618C ; 
       }
   
+    .menu-toggle {
+      display: block;
+      position: fixed;
+      left: 15px;
+      top: 15px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      z-index: 999;
+      bottom: 20px; 
+      transition: transform 0.3s ease-in-out;
+      background: linear-gradient(45deg, #40a8e9, #ffffff);
+      border-radius: 35%; 
+      border: none;
+      outline: none;
+    }
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .menu-visible .menu-toggle {
+        background: linear-gradient(45deg, #D7DBDD, #ffffff); 
+        width: 30px;
+        height: 30px;
+        margin-bottom: 20px;
+      }
+      
+      .tab {
+        display: fixed;
+        position: relative;
+        margin-top: 25px;
+        margin-left: 10px;
+        animation: fadeIn 0.5s ease-in-out;
+        
+      }
+
+      .tabs-container.menu-visible .menu-toggle {
+        transform: rotate(90deg);
+      }
+      .tabs-container.menu-visible .tab-list {
+        position: fixed;
+        left: 0;
+        width: 60%;
+        height: 80vh;
+        overflow-y: auto; 
+        border: 1px solid #797D7F;
+        transition: transform 0.3s ease-in-out; 
+        z-index: 2;
+      }
+      
+      .menu-visible.at-top .tab-list,
+      .menu-visible.at-bottom .tab-list {
+        transform: translateY(0);
+      }
+.tab-line{
+    width: 100%;
+    background-color: #000; 
+}
+  }
+  @media screen and (min-width: 1025px) and (max-width: 1200px){
+    hr{
+        display: none;
+    }
+    .link{
+        background-color: transparent;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+    .tab {
+        margin: 10px 15px 0 40px;
+      }
+      .menu-toggle{
+        display: none;
+      }
+  }
+  @media screen and (min-width: 1201px) {
+    hr{
+        display: none;
+    }
+  }
